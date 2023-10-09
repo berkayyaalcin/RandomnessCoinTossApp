@@ -180,13 +180,13 @@ namespace RandomnessCoinTossApp
             this.graphOfTryCount3.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.graphOfTryCount3.Legends.Add(legend1);
-            this.graphOfTryCount3.Location = new System.Drawing.Point(36, 426);
+            this.graphOfTryCount3.Location = new System.Drawing.Point(12, 598);
             this.graphOfTryCount3.Name = "graphOfTryCount3";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = " ";
             this.graphOfTryCount3.Series.Add(series1);
-            this.graphOfTryCount3.Size = new System.Drawing.Size(764, 127);
+            this.graphOfTryCount3.Size = new System.Drawing.Size(961, 212);
             this.graphOfTryCount3.TabIndex = 16;
             this.graphOfTryCount3.Text = "chart1";
             // 
@@ -196,13 +196,13 @@ namespace RandomnessCoinTossApp
             this.graphOfTryCount2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.graphOfTryCount2.Legends.Add(legend2);
-            this.graphOfTryCount2.Location = new System.Drawing.Point(36, 282);
+            this.graphOfTryCount2.Location = new System.Drawing.Point(14, 370);
             this.graphOfTryCount2.Name = "graphOfTryCount2";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = " ";
             this.graphOfTryCount2.Series.Add(series2);
-            this.graphOfTryCount2.Size = new System.Drawing.Size(764, 127);
+            this.graphOfTryCount2.Size = new System.Drawing.Size(959, 213);
             this.graphOfTryCount2.TabIndex = 17;
             this.graphOfTryCount2.Text = "chart1";
             // 
@@ -212,13 +212,13 @@ namespace RandomnessCoinTossApp
             this.graphOfTryCount1.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.graphOfTryCount1.Legends.Add(legend3);
-            this.graphOfTryCount1.Location = new System.Drawing.Point(36, 140);
+            this.graphOfTryCount1.Location = new System.Drawing.Point(12, 140);
             this.graphOfTryCount1.Name = "graphOfTryCount1";
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
-            series3.Name = "Series1";
+            series3.Name = " ";
             this.graphOfTryCount1.Series.Add(series3);
-            this.graphOfTryCount1.Size = new System.Drawing.Size(764, 127);
+            this.graphOfTryCount1.Size = new System.Drawing.Size(961, 212);
             this.graphOfTryCount1.TabIndex = 18;
             this.graphOfTryCount1.Text = "chart1";
             // 
@@ -226,7 +226,7 @@ namespace RandomnessCoinTossApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 565);
+            this.ClientSize = new System.Drawing.Size(985, 822);
             this.Controls.Add(this.graphOfTryCount1);
             this.Controls.Add(this.graphOfTryCount2);
             this.Controls.Add(this.graphOfTryCount3);
