@@ -183,6 +183,7 @@ namespace RandomnessCoinTossApp
             this.graphOfTryCount3.Location = new System.Drawing.Point(12, 598);
             this.graphOfTryCount3.Name = "graphOfTryCount3";
             series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = " ";
             this.graphOfTryCount3.Series.Add(series1);
@@ -199,6 +200,7 @@ namespace RandomnessCoinTossApp
             this.graphOfTryCount2.Location = new System.Drawing.Point(14, 370);
             this.graphOfTryCount2.Name = "graphOfTryCount2";
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Legend = "Legend1";
             series2.Name = " ";
             this.graphOfTryCount2.Series.Add(series2);
@@ -215,6 +217,7 @@ namespace RandomnessCoinTossApp
             this.graphOfTryCount1.Location = new System.Drawing.Point(12, 140);
             this.graphOfTryCount1.Name = "graphOfTryCount1";
             series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series3.Legend = "Legend1";
             series3.Name = " ";
             this.graphOfTryCount1.Series.Add(series3);

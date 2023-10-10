@@ -24,6 +24,7 @@ namespace RandomnessCoinTossApp
 
         private void CalculateHeadOrTails(int attempts, int invalid, Chart chart)
         {
+            chart.Series.Clear();
             heads = 0; tails = 0; //Heads : Yazı , Tails ; Tura.
 
             attempts *= (1 - (invalid / 100));
@@ -37,9 +38,6 @@ namespace RandomnessCoinTossApp
             tailsSeries.ChartType = SeriesChartType.Line;
             tailsSeries.Color = Color.Black;
 
-            headsSeries.Name = "Yazı"; 
-            tailsSeries.Name = "Tura";
-
             for (int i = 0; i < attempts; i++)
             {
                 int rand = random.Next();
@@ -47,14 +45,17 @@ namespace RandomnessCoinTossApp
                 if (rand % 2 == 0)
                 {
                     heads++;
-                    headsSeries.Points.Add(new DataPoint(i+2, heads));
+                    headsSeries.Points.Add(new DataPoint(heads, i+1));
                 }
                 else
                 {
                     tails++;
-                    tailsSeries.Points.Add(new DataPoint(i+2, tails));
+                    tailsSeries.Points.Add(new DataPoint(tails, i+1));
                 }
             }
+
+            headsSeries.Name = "Yazı " + heads;
+            tailsSeries.Name = "Tura " + tails;
 
             chart.Series.Add(headsSeries);
             chart.Series.Add(tailsSeries);
@@ -66,8 +67,6 @@ namespace RandomnessCoinTossApp
         {
             AttemptsList = new NumericUpDown[] { numericUpDownTryCount1, numericUpDownTryCount2, numericUpDownTryCount3 };
             ChartList = new Chart[] { graphOfTryCount1, graphOfTryCount2, graphOfTryCount3 };
-            headsSeries = new Series();
-            tailsSeries = new Series();
 
             try
             {
