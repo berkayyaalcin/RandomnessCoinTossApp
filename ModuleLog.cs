@@ -26,24 +26,25 @@ namespace RandomnessCoinTossApp
 
         public void OutputLog(int attempts, int heads, int tails, double finalAtttempts)
         {
-            if (!File.Exists(Path.Combine(_logDirectory, _logErrorFileName)))
-                File.Create(Path.Combine(_logDirectory, _logOutputFileName));
-
             DateTime now = DateTime.Now;
 
             string outputLogMessage = $"{now} - Deneme: {attempts} - Yazı: {heads} - Tura: {tails} - Atış: {finalAtttempts}\n";
+
+            if (!File.Exists(Path.Combine(_logDirectory, _logOutputFileName)))
+                File.Create(Path.Combine(_logDirectory, _logOutputFileName)).Close(); 
+
 
             File.AppendAllText(Path.Combine(_logDirectory, _logOutputFileName), outputLogMessage);
         }
 
         public void ErrorLog(Exception ex)
         {
-            if(!File.Exists(Path.Combine(_logDirectory, _logErrorFileName)))
-                File.Create(Path.Combine(_logDirectory, _logErrorFileName));
-
             DateTime now = DateTime.Now;
 
             string errorLogMessage = $"{now} - Uygulamada {ex} oluştu. Lütfen Kontrol ediniz.\n";
+
+            if (!File.Exists(Path.Combine(_logDirectory, _logErrorFileName)))
+                File.Create(Path.Combine(_logDirectory, _logErrorFileName)).Close();
 
             File.AppendAllText(Path.Combine(_logDirectory, _logErrorFileName), errorLogMessage);
 
