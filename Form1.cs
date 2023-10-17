@@ -9,11 +9,14 @@ namespace RandomnessCoinTossApp
     {
         Random random = new Random();
 
+        ModuleLog moduleLog = new ModuleLog();
+
         NumericUpDown[] AttemptsList;
 
         Chart[] ChartList;
 
         int heads, tails;
+        double headsPercent, tailsPercent;
 
         Series headsSeries, tailsSeries;
 
@@ -22,45 +25,50 @@ namespace RandomnessCoinTossApp
             InitializeComponent();
         }
 
-        private void CalculateHeadOrTails(int attempts, int invalid, Chart chart)
+        private void CalculateHeadOrTails(int attempts, double invalid, Chart chart)
         {
             chart.Series.Clear();
             heads = 0; tails = 0; //Heads : Yazı , Tails ; Tura.
-
-            attempts *= (1 - (invalid / 100));
+            
+            double newAttempts = attempts * (1 - (invalid / 100));
 
             headsSeries = new Series();
             tailsSeries = new Series();
 
-            headsSeries.ChartType = SeriesChartType.Line;
+            headsSeries.ChartType = SeriesChartType.Column;
             headsSeries.Color = Color.Red;
 
-            tailsSeries.ChartType = SeriesChartType.Line;
-            tailsSeries.Color = Color.Black;
+            tailsSeries.ChartType = SeriesChartType.Column;
+            tailsSeries.Color = Color.Turquoise;
 
-            for (int i = 0; i < attempts; i++)
+            for (int i = 0; i < newAttempts; i++)
             {
                 int rand = random.Next();
 
                 if (rand % 2 == 0)
                 {
                     heads++;
-                    headsSeries.Points.Add(new DataPoint(heads, i+1));
                 }
                 else
                 {
                     tails++;
-                    tailsSeries.Points.Add(new DataPoint(tails, i+1));
                 }
+                headsPercent = 100 * ((double)heads / (heads + tails));
+                tailsPercent = 100 * ((double)tails / (heads + tails));
+
+                headsSeries.Points.AddXY(i + 1, headsPercent);
+                tailsSeries.Points.AddXY(i + 1, tailsPercent);
             }
 
-            headsSeries.Name = "Yazı " + heads;
-            tailsSeries.Name = "Tura " + tails;
+            headsSeries.Name = "Yazı % " + headsPercent.ToString("F2");
+            tailsSeries.Name = "Tura % " + tailsPercent.ToString("F2");
 
             chart.Series.Add(headsSeries);
             chart.Series.Add(tailsSeries);
 
             chart.DataBind();
+
+            moduleLog.OutputLog(attempts, heads,tails,newAttempts);
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
@@ -72,12 +80,12 @@ namespace RandomnessCoinTossApp
             {
                 for (int i = 0; i < AttemptsList.Length; i++)
                 {
-                    CalculateHeadOrTails((int)AttemptsList[i].Value, (int)percentNumUpDown.Value, ChartList[i]);
+                    CalculateHeadOrTails((int)AttemptsList[i].Value, (double)percentNumUpDown.Value, ChartList[i]);
                 }
             }
             catch (Exception ex)
             {
-
+                moduleLog.ErrorLog(ex);
             }
         }
     }
